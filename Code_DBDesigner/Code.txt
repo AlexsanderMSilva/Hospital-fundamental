@@ -1,0 +1,49 @@
+
+Médico {
+	Nome varchar > Consulta.Médico
+	Formação varchar
+	Especialidades varchar
+	Nascimento date
+	Endereço varchar
+	Telefone varchar
+	E-mail varchar
+	CPF varchar
+	RG varchar
+	CRM varchar
+}
+
+Consulta {
+	Data_Hora integer
+	Médico integer
+	Paciente integer > Sistema.Sistema
+	Valor integer
+	Nome_Convênio integer
+	N_Carteira integer
+	Especialidade_B integer
+}
+
+Receita {
+	Medicamentos varchar > Consulta.Médico
+	Instruções integer
+	Relatório integer
+}
+
+Paciente {
+	Nome varchar > Consulta.Paciente
+	Nascimento date
+	Endereço varchar
+	Telefone varchar
+	E-mail varchar
+	CPF varchar
+	RG varchar
+	CNPJ varchar
+	Convênio varchar
+	Carência varchar
+}
+
+Sistema {
+	Sistema varchar > Consulta.Médico
+	Antigos varchar
+	Atuais varchar
+	Atualizar integer
+}
