@@ -1,0 +1,85 @@
+Consulta {
+	id_consulta integer > Receita.id_consulta
+	Data_Hora varchar
+	Medico varchar
+	Paciente varchar
+	Valor varchar
+	Nome_Convenio varchar
+	N_Carteira varchar
+	Especialidade_B varchar
+	id_medico integer > Receita.id_medico
+}
+
+Receita {
+	id_receitas integer > Sistema.id_consulta
+	id_medico integer
+	Medicamentos varchar
+	Instruções varchar
+	Relatório varchar
+}
+
+Paciente {
+	id_paciente integer > Internacao.id_paciente
+	id_convenio integer > convenio.id_convenio
+	nome varchar
+	Nascimento varchar
+	Endereço varchar
+	Telefone varchar
+	E-mail varchar
+	CPF varchar
+	RG varchar
+	CNPJ varchar
+}
+
+Quarto {
+	id_quarto integer pk increments
+	numero integer
+	id_tipo_quarto integer > Tipo_quarto.id_tipo_quarto
+}
+
+Enfermeiro {
+	id_enfermeiro integer pk increments
+	nome varchar
+	cpf varchar
+	cre varchar
+}
+
+Tipo_quarto {
+	id_tipo_quarto integer pk increments
+	valor)_diaria varchar
+	descrição varchar
+	tipo varchar
+}
+
+convenio {
+	id_convenio integer pk increments
+	nome varchar
+	cnpj varchar
+	carencia varchar
+}
+
+Internacao {
+	id_internacao integer pk increments
+	id_paciente integer
+	pacientes varchar
+	data_entrada varchar
+	data_prev_alta varchar
+	data_alta varchar
+	procedimento varchar
+	id_quarto integer > Quarto.id_quarto
+	id_enfermeiro integer > Enfermeiro.id_enfermeiro
+}
+
+Medico {
+	id_medico integer > Consulta.id_medico
+	Formacao varchar
+	Especialidades varchar
+	Nascimento date
+	Endereco varchar
+	Telefone varchar
+	E-mail varchar
+	CPF varchar
+	RG varchar
+	CRM varchar
+}
+
